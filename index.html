@@ -654,16 +654,58 @@
       <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink-900" data-i18n="why.title">A market built for this.</h2>
     </div>
 
-    <!-- ROW 1: Atmosphere banner -->
-    <figure class="reveal relative mt-10 mb-12 overflow-hidden rounded-2xl ring-1 ring-paper-200 shadow-card">
-      <img src="assets/img/koh-phangan-vibe.jpg"
-           alt="Koh Phangan island life — Full Moon party atmosphere"
-           loading="lazy"
-           width="1200" height="1600"
-           class="w-full block object-cover"
-           style="aspect-ratio:21/9; object-position:center 30%; max-height:380px;" />
+    <!-- ROW 1: Illustrated banner -->
+    <figure class="reveal relative mt-10 mb-12 overflow-hidden rounded-2xl ring-1 ring-paper-200 shadow-card"
+            style="background: linear-gradient(180deg, rgba(15,118,110,0.06) 0%, #FFFFFF 50%, rgba(254,243,199,0.18) 100%); aspect-ratio: 21/9; max-height: 380px;">
+      <svg viewBox="0 0 2100 900" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full" aria-hidden="true">
+        <!-- Soft sun/moon -->
+        <circle cx="1700" cy="220" r="140" fill="#0F766E" opacity="0.12"/>
+        <circle cx="1700" cy="220" r="200" fill="#0F766E" opacity="0.05"/>
+
+        <!-- Back mountain layer -->
+        <path d="M 0 700 Q 350 540 700 620 Q 1050 700 1400 580 Q 1750 460 2100 640 L 2100 900 L 0 900 Z"
+              fill="#0F766E" opacity="0.10"/>
+
+        <!-- Mid mountain layer -->
+        <path d="M 0 760 Q 300 660 600 700 Q 950 740 1300 680 Q 1700 620 2100 700 L 2100 900 L 0 900 Z"
+              fill="#0F766E" opacity="0.16"/>
+
+        <!-- Front mountain layer -->
+        <path d="M 0 800 Q 200 720 400 770 Q 600 820 850 760 Q 1100 700 1350 760 Q 1600 820 1850 770 Q 2000 740 2100 770 L 2100 900 L 0 900 Z"
+              fill="#0F766E" opacity="0.22"/>
+
+        <!-- Palm tree 1 (foreground left) -->
+        <g opacity="0.55" stroke="#0F766E" fill="none" stroke-linecap="round">
+          <path d="M 180 800 Q 160 600 200 420" stroke-width="9"/>
+          <path d="M 200 420 Q 110 380 50 350"  stroke-width="8"/>
+          <path d="M 200 420 Q 130 350 80 290"  stroke-width="8"/>
+          <path d="M 200 420 Q 200 340 200 270" stroke-width="8"/>
+          <path d="M 200 420 Q 270 350 320 290" stroke-width="8"/>
+          <path d="M 200 420 Q 300 380 360 360" stroke-width="8"/>
+          <path d="M 200 420 Q 290 410 350 410" stroke-width="8"/>
+        </g>
+
+        <!-- Palm tree 2 (background right of tree 1, smaller) -->
+        <g opacity="0.40" stroke="#0F766E" fill="none" stroke-linecap="round">
+          <path d="M 340 800 Q 360 640 330 500" stroke-width="6"/>
+          <path d="M 330 500 Q 270 470 230 450" stroke-width="6"/>
+          <path d="M 330 500 Q 280 430 250 380" stroke-width="6"/>
+          <path d="M 330 500 Q 330 430 330 370" stroke-width="6"/>
+          <path d="M 330 500 Q 380 440 410 390" stroke-width="6"/>
+          <path d="M 330 500 Q 400 470 440 450" stroke-width="6"/>
+        </g>
+
+        <!-- Wave lines (back to front) -->
+        <path d="M 0 850 Q 175 830 350 850 T 700 850 T 1050 850 T 1400 850 T 1750 850 T 2100 850"
+              fill="none" stroke="#0F766E" stroke-width="2" opacity="0.30"/>
+        <path d="M 0 870 Q 175 855 350 870 T 700 870 T 1050 870 T 1400 870 T 1750 870 T 2100 870"
+              fill="none" stroke="#0F766E" stroke-width="2" opacity="0.20"/>
+        <path d="M 0 885 Q 175 875 350 885 T 700 885 T 1050 885 T 1400 885 T 1750 885 T 2100 885"
+              fill="none" stroke="#0F766E" stroke-width="2" opacity="0.12"/>
+      </svg>
+
       <div class="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none"
-           style="background: linear-gradient(180deg, transparent 0%, rgba(8,12,16,0) 30%, rgba(8,12,16,.55) 75%, rgba(8,12,16,.78) 100%);"></div>
+           style="background: linear-gradient(180deg, transparent 0%, rgba(8,12,16,0) 50%, rgba(8,12,16,.35) 80%, rgba(8,12,16,.55) 100%);"></div>
       <figcaption class="absolute left-5 sm:left-7 bottom-5 sm:bottom-6 text-white text-sm sm:text-base font-medium max-w-[88%] leading-snug drop-shadow"
                   data-i18n="whyV2.bannerCap">
         Koh Phangan — where tourism, lifestyle, and opportunity converge.
@@ -683,20 +725,20 @@
 
       <!-- Card 2 -->
       <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:90ms">
-        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c2.stat">THB 13,692</div>
-        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c2.unit">Average villa ADR (Samui region, 2024)</p>
-        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c2.title">Premium yields, low competition density</h3>
-        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c2.desc">Regional villa ADR holds at THB 13,692 per night with 56.6% annual occupancy. Koh Phangan trails Samui in supply density — the opportunity window is open now.</p>
-        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c2.src">C9 Hotelworks, Samui Property Market Update June 2025</p>
+        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c2.stat">2,000+</div>
+        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c2.unit">Lead conversations our AI processed</p>
+        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c2.title">Pilot validated on the ground</h3>
+        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c2.desc">Our AI assistant Maya processed over 2,000 inbound inquiries during pilot operations on Koh Phangan — answering questions, sharing property information, and qualifying leads automatically.</p>
+        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c2.src">Pilot phase · Koh Phangan 2024–2026</p>
       </article>
 
       <!-- Card 3 -->
       <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:180ms">
-        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c3.stat">2026</div>
-        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c3.unit">Thailand's 'Healing Journey' tourism campaign launched</p>
-        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c3.title">Wellness tourism is the national bet</h3>
-        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c3.desc">Tourism Authority of Thailand actively targets wellness-led, high-value international visitors — Koh Phangan's exact demographic.</p>
-        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c3.src">Tourism Authority of Thailand, March 2026</p>
+        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c3.stat">2.8M+</div>
+        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c3.unit">Annual visitors to Surat Thani region</p>
+        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c3.title">Massive demand, fragmented operators</h3>
+        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c3.desc">Koh Phangan and the Surat Thani archipelago welcome millions of international travelers every year. Our AI scales the customer-service layer that small local operators can't staff manually.</p>
+        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c3.src">Tourism Authority of Thailand, Surat Thani Province</p>
       </article>
     </div>
 
@@ -715,31 +757,37 @@
       <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink-900" data-i18n="team.title">Founders</h2>
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
-      <article class="card team-card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white overflow-hidden">
-        <div class="flex items-center gap-5">
-          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-paper-200 flex-shrink-0">
-            <img src="assets/img/liran-new.jpg" alt="Portrait of Liran (Liam) Miller with co-founder Sirin Nekhamatcha" width="96" height="96" class="photo w-full h-full object-cover" />
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink-900">Liran (Liam) Miller</h3>
-            <p class="text-xs font-medium uppercase tracking-wide text-accent-700 mt-1" data-i18n="team.liran.role">Co-Founder · AI &amp; Systems</p>
-          </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
+      <!-- LIRAN solo -->
+      <article class="card team-card reveal stagger order-1 lg:order-none md:col-span-1 lg:col-span-1 h-full p-6 sm:p-7 rounded-2xl border border-paper-200 bg-white overflow-hidden flex flex-col items-center text-center" style="--d:0ms">
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-1 ring-paper-200">
+          <img src="assets/img/liran-solo.jpg" alt="Portrait of Liran (Liam) Miller" width="112" height="112" class="photo w-full h-full object-cover" />
         </div>
-        <p class="mt-5 text-sm text-ink-500 leading-relaxed" data-i18n="team.liran.bio">Digital entrepreneur. AI systems and chatbot specialist.</p>
+        <h3 class="mt-5 text-lg font-semibold text-ink-900">Liran (Liam) Miller</h3>
+        <p class="mt-1.5 text-xs font-medium uppercase tracking-wide text-accent-700" data-i18n="team.liran.role">Co-Founder · AI &amp; Systems</p>
+        <p class="mt-4 text-sm text-ink-500 leading-relaxed" data-i18n="team.liran.bio">Digital entrepreneur. AI systems and chatbot specialist.</p>
       </article>
 
-      <article class="card team-card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white overflow-hidden">
-        <div class="flex items-center gap-5">
-          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-paper-200 flex-shrink-0">
-            <img src="assets/img/sirin.jpg" alt="Portrait of Sirin Nekhamatcha" width="96" height="96" class="photo w-full h-full object-cover" />
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink-900">Sirin Nekhamatcha</h3>
-            <p class="text-xs font-medium uppercase tracking-wide text-accent-700 mt-1" data-i18n="team.sirin.role">Co-Founder · Local Operations</p>
-          </div>
+      <!-- TOGETHER centerpiece -->
+      <article class="card team-card reveal stagger order-3 lg:order-none md:col-span-2 lg:col-span-2 h-full rounded-2xl border border-paper-200 bg-white overflow-hidden flex flex-col" style="--d:90ms">
+        <div class="relative w-full overflow-hidden" style="aspect-ratio: 4/3;">
+          <img src="assets/img/founders-together.jpg" alt="Liran and Sirin together in Koh Phangan" loading="lazy" width="788" height="591" class="photo absolute inset-0 w-full h-full object-cover" style="object-position: center 30%;" />
         </div>
-        <p class="mt-5 text-sm text-ink-500 leading-relaxed" data-i18n="team.sirin.bio">Business consultant. Local operations, Koh Phangan.</p>
+        <div class="p-6 sm:p-7 flex flex-col flex-1">
+          <span class="chip self-start" data-i18n="team.together.chip">Partnership</span>
+          <h3 class="mt-3 text-lg sm:text-xl font-semibold text-ink-900" data-i18n="team.together.title">Working side by side</h3>
+          <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="team.together.desc">We met in Koh Phangan and built Kaite Bloom together — combining digital expertise with deep local knowledge.</p>
+        </div>
+      </article>
+
+      <!-- SIRIN solo -->
+      <article class="card team-card reveal stagger order-2 lg:order-none md:col-span-1 lg:col-span-1 h-full p-6 sm:p-7 rounded-2xl border border-paper-200 bg-white overflow-hidden flex flex-col items-center text-center" style="--d:180ms">
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-1 ring-paper-200">
+          <img src="assets/img/sirin.jpg" alt="Portrait of Sirin Nekhamatcha" width="112" height="112" class="photo w-full h-full object-cover" />
+        </div>
+        <h3 class="mt-5 text-lg font-semibold text-ink-900">Sirin Nekhamatcha</h3>
+        <p class="mt-1.5 text-xs font-medium uppercase tracking-wide text-accent-700" data-i18n="team.sirin.role">Co-Founder · Local Operations</p>
+        <p class="mt-4 text-sm text-ink-500 leading-relaxed" data-i18n="team.sirin.bio">Business consultant. Local operations, Koh Phangan.</p>
       </article>
     </div>
 
@@ -900,16 +948,16 @@ const I18N = {
     'whyV2.c1.title':'Operational gap = our wedge',
     'whyV2.c1.desc':'Property owners, managers, and tour operators on Koh Phangan still handle inquiries manually. We replace that bottleneck with always-on AI.',
     'whyV2.c1.src':'Field research, Koh Phangan 2024–2026',
-    'whyV2.c2.stat':'THB 13,692',
-    'whyV2.c2.unit':'Average villa ADR (Samui region, 2024)',
-    'whyV2.c2.title':'Premium yields, low competition density',
-    'whyV2.c2.desc':'Regional villa ADR holds at THB 13,692 per night with 56.6% annual occupancy. Koh Phangan trails Samui in supply density — the opportunity window is open now.',
-    'whyV2.c2.src':'C9 Hotelworks, Samui Property Market Update June 2025',
-    'whyV2.c3.stat':'2026',
-    'whyV2.c3.unit':"Thailand's 'Healing Journey' tourism campaign launched",
-    'whyV2.c3.title':'Wellness tourism is the national bet',
-    'whyV2.c3.desc':"Tourism Authority of Thailand actively targets wellness-led, high-value international visitors — Koh Phangan's exact demographic.",
-    'whyV2.c3.src':'Tourism Authority of Thailand, March 2026',
+    'whyV2.c2.stat':'2,000+',
+    'whyV2.c2.unit':'Lead conversations our AI processed',
+    'whyV2.c2.title':'Pilot validated on the ground',
+    'whyV2.c2.desc':'Our AI assistant Maya processed over 2,000 inbound inquiries during pilot operations on Koh Phangan — answering questions, sharing property information, and qualifying leads automatically.',
+    'whyV2.c2.src':'Pilot phase · Koh Phangan 2024–2026',
+    'whyV2.c3.stat':'2.8M+',
+    'whyV2.c3.unit':'Annual visitors to Surat Thani region',
+    'whyV2.c3.title':'Massive demand, fragmented operators',
+    'whyV2.c3.desc':"Koh Phangan and the Surat Thani archipelago welcome millions of international travelers every year. Our AI scales the customer-service layer that small local operators can't staff manually.",
+    'whyV2.c3.src':'Tourism Authority of Thailand, Surat Thani Province',
     'whyV2.closing':'We operate locally — working directly with property owners, investors, and rental businesses across Koh Phangan.',
     'team.chip':'Team',
     'team.title':'Founders',
@@ -917,6 +965,9 @@ const I18N = {
     'team.liran.bio':'Digital entrepreneur. AI systems and chatbot specialist.',
     'team.sirin.role':'Co-Founder · Local Operations',
     'team.sirin.bio':'Business consultant. Local operations, Koh Phangan.',
+    'team.together.chip':'Partnership',
+    'team.together.title':'Working side by side',
+    'team.together.desc':'We met in Koh Phangan and built Kaite Bloom together — combining digital expertise with deep local knowledge.',
     'team.network':'Supported by a network of local partners — property scouts, maintenance crews, suppliers, and field operators across Koh Phangan.',
     'contact.chip':'Contact',
     'contact.title':"Let's talk operations.",
@@ -998,16 +1049,16 @@ const I18N = {
     'whyV2.c1.title':'ช่องว่างของระบบ = โอกาสของเรา',
     'whyV2.c1.desc':'เจ้าของที่พัก ผู้จัดการ และผู้ประกอบการท่องเที่ยวบนเกาะพะงันยังจัดการคำถามด้วยตนเอง เราเข้ามาแทนที่ด้วย AI ที่ทำงานตลอดเวลา',
     'whyV2.c1.src':'ผลสำรวจภาคสนาม เกาะพะงัน ปี 2024–2026',
-    'whyV2.c2.stat':'13,692 บาท',
-    'whyV2.c2.unit':'ค่าเช่าวิลล่าเฉลี่ยต่อคืน (ภูมิภาคสมุย ปี 2024)',
-    'whyV2.c2.title':'ผลตอบแทนสูง การแข่งขันต่ำ',
-    'whyV2.c2.desc':'ค่าเช่าวิลล่าเฉลี่ยในภูมิภาคอยู่ที่ 13,692 บาทต่อคืน อัตราการเข้าพักเฉลี่ย 56.6% ต่อปี เกาะพะงันยังมีอุปทานน้อยกว่าสมุย — โอกาสยังเปิดอยู่',
-    'whyV2.c2.src':'C9 Hotelworks, รายงานตลาดอสังหาริมทรัพย์สมุย มิถุนายน 2025',
-    'whyV2.c3.stat':'2026',
-    'whyV2.c3.unit':"แคมเปญท่องเที่ยว 'Healing Journey' ของไทยเริ่มดำเนินการ",
-    'whyV2.c3.title':'การท่องเที่ยวเชิงสุขภาพคือยุทธศาสตร์ระดับชาติ',
-    'whyV2.c3.desc':'การท่องเที่ยวแห่งประเทศไทยมุ่งเป้านักท่องเที่ยวต่างชาติเชิงสุขภาพและกำลังซื้อสูง — กลุ่มเป้าหมายตรงของเกาะพะงัน',
-    'whyV2.c3.src':'การท่องเที่ยวแห่งประเทศไทย มีนาคม 2026',
+    'whyV2.c2.stat':'2,000+',
+    'whyV2.c2.unit':'การสนทนากับลูกค้าที่ AI ของเราประมวลผล',
+    'whyV2.c2.title':'พิสูจน์แล้วในพื้นที่จริง',
+    'whyV2.c2.desc':'Maya ผู้ช่วย AI ของเราประมวลผลคำถามมากกว่า 2,000 รายการในช่วงการดำเนินงานนำร่องบนเกาะพะงัน — ตอบคำถาม แชร์ข้อมูลที่พัก และคัดกรองลูกค้าโดยอัตโนมัติ',
+    'whyV2.c2.src':'ระยะนำร่อง · เกาะพะงัน 2024–2026',
+    'whyV2.c3.stat':'2.8M+',
+    'whyV2.c3.unit':'นักท่องเที่ยวต่อปีในจังหวัดสุราษฎร์ธานี',
+    'whyV2.c3.title':'อุปสงค์มหาศาล ผู้ประกอบการกระจัดกระจาย',
+    'whyV2.c3.desc':'เกาะพะงันและหมู่เกาะในจังหวัดสุราษฎร์ธานีต้อนรับนักท่องเที่ยวต่างชาติหลายล้านคนต่อปี AI ของเราช่วยขยายบริการลูกค้าที่ผู้ประกอบการรายย่อยไม่สามารถจัดการด้วยทีมงานได้',
+    'whyV2.c3.src':'การท่องเที่ยวแห่งประเทศไทย จังหวัดสุราษฎร์ธานี',
     'whyV2.closing':'เราดำเนินงานในพื้นที่ — ทำงานโดยตรงกับเจ้าของที่พัก นักลงทุน และธุรกิจให้เช่าทั่วเกาะพะงัน',
     'team.chip':'ทีมงาน',
     'team.title':'ผู้ก่อตั้ง',
@@ -1015,6 +1066,9 @@ const I18N = {
     'team.liran.bio':'ผู้ประกอบการด้านดิจิทัล ผู้เชี่ยวชาญระบบ AI และแชตบอท',
     'team.sirin.role':'ผู้ร่วมก่อตั้ง · ปฏิบัติการในพื้นที่',
     'team.sirin.bio':'ที่ปรึกษาธุรกิจ ดูแลการดำเนินงานในพื้นที่เกาะพะงัน',
+    'team.together.chip':'ความร่วมมือ',
+    'team.together.title':'ทำงานเคียงข้างกัน',
+    'team.together.desc':'เราพบกันที่เกาะพะงันและร่วมกันสร้าง Kaite Bloom — ผสานความเชี่ยวชาญด้านดิจิทัลเข้ากับความรู้ในพื้นที่อย่างลึกซึ้ง',
     'team.network':'ได้รับการสนับสนุนจากเครือข่ายพันธมิตรในท้องถิ่น — นักหาทำเลที่พัก ทีมซ่อมบำรุง ซัพพลายเออร์ และทีมภาคสนามทั่วเกาะพะงัน',
     'contact.chip':'ติดต่อเรา',
     'contact.title':'พูดคุยเรื่องการดำเนินงาน',
