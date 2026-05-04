@@ -129,6 +129,11 @@
   .btn-mag.primary:hover { transform: scale(1.02); box-shadow: 0 8px 24px -6px rgba(15,118,110,.45), 0 2px 6px rgba(15,118,110,.20); }
   .btn-mag.secondary:hover { transform: scale(1.02); box-shadow: 0 8px 24px -8px rgba(15,118,110,.18); }
 
+  /* ===== Brand logos (Growth section) ===== */
+  .brand-logo { transition: transform .25s ease, opacity .25s ease; opacity:.92; }
+  .brand-logo:hover { transform: scale(1.05); opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .brand-logo:hover { transform: none; } }
+
   /* ===== Gallery cards ===== */
   .gal-rail-wrap { position: relative; }
   .gal-rail { display:flex; gap: 16px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding: 4px 4px 14px; scrollbar-width: thin; scroll-padding: 0 16px; }
@@ -289,6 +294,7 @@
     <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-7 text-sm text-ink-700">
       <li><a class="hover:text-accent-700 transition-colors" href="#services" data-i18n="nav.services">What We Do</a></li>
+      <li><a class="hover:text-accent-700 transition-colors" href="#growth" data-i18n="nav.growth">Growth</a></li>
       <li><a class="hover:text-accent-700 transition-colors" href="#how" data-i18n="nav.how">How It Works</a></li>
       <li><a class="hover:text-accent-700 transition-colors" href="#why" data-i18n="nav.why">Why Koh Phangan</a></li>
       <li><a class="hover:text-accent-700 transition-colors" href="#team" data-i18n="nav.team">Team</a></li>
@@ -311,6 +317,7 @@
   <div id="mobileMenu" hidden class="md:hidden border-t border-paper-200 bg-white">
     <ul class="px-5 py-3 space-y-1 text-sm">
       <li><a class="block px-3 py-2 rounded-md hover:bg-paper-100" href="#services" data-i18n="nav.services">What We Do</a></li>
+      <li><a class="block px-3 py-2 rounded-md hover:bg-paper-100" href="#growth" data-i18n="nav.growth">Growth</a></li>
       <li><a class="block px-3 py-2 rounded-md hover:bg-paper-100" href="#how" data-i18n="nav.how">How It Works</a></li>
       <li><a class="block px-3 py-2 rounded-md hover:bg-paper-100" href="#why" data-i18n="nav.why">Why Koh Phangan</a></li>
       <li><a class="block px-3 py-2 rounded-md hover:bg-paper-100" href="#team" data-i18n="nav.team">Team</a></li>
@@ -421,6 +428,99 @@
     <p class="reveal mt-10 text-center text-base sm:text-lg text-ink-700" data-i18n="services.outro">
       All unified through <span class="font-semibold text-accent-700">one WhatsApp channel.</span>
     </p>
+  </div>
+</section>
+
+<!-- ============ GROWTH & ACQUISITION ============ -->
+<section id="growth" class="py-20 sm:py-28 border-y border-paper-200" style="background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FD 100%);">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6">
+    <div class="max-w-3xl">
+      <span class="chip reveal" data-i18n="growth.chip">Growth &amp; Acquisition</span>
+      <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink-900" data-i18n="growth.title">A complete acquisition engine — not just a chatbot.</h2>
+      <p class="reveal mt-4 text-ink-500 leading-relaxed" data-i18n="growth.lede">We pair AI-driven operations with active demand generation. Our team runs paid acquisition campaigns across Meta platforms, feeding qualified leads directly into the bot.</p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:0ms">
+        <div class="text-5xl sm:text-[3.2rem] font-bold tracking-tight grad-text leading-none" data-i18n="growth.c1.stat">3</div>
+        <p class="mt-3 text-sm font-medium text-ink-700 leading-snug" data-i18n="growth.c1.unit">Active acquisition campaigns</p>
+        <p class="mt-3 text-sm text-ink-500 leading-relaxed" data-i18n="growth.c1.desc">Currently running across Meta platforms — Facebook and Instagram — targeting investors, travelers, and property managers.</p>
+      </article>
+
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col relative overflow-hidden md:col-span-2 lg:col-span-1" style="--d:90ms">
+        <div class="absolute -top-6 -right-6 w-28 h-28 rounded-full" style="background: radial-gradient(circle, rgba(15,118,110,.10) 0%, transparent 70%);" aria-hidden="true"></div>
+        <div class="text-5xl sm:text-[3.2rem] font-bold tracking-tight grad-text leading-none" data-i18n="growth.c2.stat">2,000+</div>
+        <p class="mt-3 text-sm font-medium text-ink-700 leading-snug" data-i18n="growth.c2.unit">Conversations processed by our AI bot</p>
+        <p class="mt-3 text-sm text-ink-500 leading-relaxed" data-i18n="growth.c2.desc">Our AI assistant Maya has processed over 2,000 inbound conversations during pilot operations on Koh Phangan — answering inquiries, sharing property details, and routing qualified leads.</p>
+        <p class="mt-auto pt-5">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-50 border border-accent-100 text-[10.5px] font-medium uppercase tracking-wide text-accent-700" data-i18n="growth.c2.tag">Pilot phase · Koh Phangan 2024–2026</span>
+        </p>
+      </article>
+
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:180ms">
+        <div class="text-5xl sm:text-[3.2rem] font-bold tracking-tight grad-text leading-none" data-i18n="growth.c3.stat">1</div>
+        <p class="mt-3 text-sm font-medium text-ink-700 leading-snug" data-i18n="growth.c3.unit">WhatsApp channel — every lead, every conversation</p>
+        <p class="mt-3 text-sm text-ink-500 leading-relaxed" data-i18n="growth.c3.desc">All campaign traffic — Facebook, Instagram, organic, referrals — converges into one WhatsApp inbox managed by AI 24/7.</p>
+      </article>
+    </div>
+
+    <!-- Platform logos strip -->
+    <div class="reveal mt-12 sm:mt-14 text-center">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-500" data-i18n="growth.platformsLabel">Powered by</p>
+      <div class="mt-5 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-8 sm:gap-10 lg:gap-14">
+        <!-- Meta -->
+        <div class="brand-logo flex items-center justify-center gap-2" aria-label="Meta">
+          <svg width="28" height="20" viewBox="0 0 80 36" aria-hidden="true">
+            <defs>
+              <linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0064E0"/>
+                <stop offset="100%" stop-color="#0668E1"/>
+              </linearGradient>
+            </defs>
+            <path d="M10 18 C10 6, 24 6, 40 18 C56 30, 70 30, 70 18 C70 6, 56 6, 40 18 C24 30, 10 30, 10 18 Z"
+                  fill="none" stroke="url(#metaGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:Inter,sans-serif;font-weight:700;font-size:18px;color:#0668E1;letter-spacing:-.02em;">Meta</span>
+        </div>
+
+        <!-- Facebook -->
+        <div class="brand-logo flex items-center justify-center" aria-label="Facebook">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="16" fill="#1877F2"/>
+            <path d="M19 16.6l.5-3.3h-3.2v-2.1c0-.9.4-1.8 1.8-1.8h1.5V6.6s-1.3-.2-2.6-.2c-2.7 0-4.4 1.6-4.4 4.5v2.4h-3v3.3h3v8h3.7v-8H19z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+
+        <!-- Instagram -->
+        <div class="brand-logo flex items-center justify-center" aria-label="Instagram">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <defs>
+              <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#FEDA77"/>
+                <stop offset="25%"  stop-color="#F58529"/>
+                <stop offset="55%"  stop-color="#DD2A7B"/>
+                <stop offset="80%"  stop-color="#8134AF"/>
+                <stop offset="100%" stop-color="#515BD4"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="28" height="28" rx="7.5" fill="url(#igGrad)"/>
+            <circle cx="16" cy="16" r="6" fill="none" stroke="#FFFFFF" stroke-width="2.4"/>
+            <circle cx="23" cy="9" r="1.6" fill="#FFFFFF"/>
+          </svg>
+        </div>
+
+        <!-- WhatsApp Business -->
+        <div class="brand-logo flex items-center justify-center gap-2.5" aria-label="WhatsApp Business">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="#25D366"/>
+            <path d="M22.6 18.7c-.3-.15-1.7-.83-2-.92-.27-.1-.46-.15-.66.15-.2.3-.75.92-.92 1.1-.17.2-.34.22-.63.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.48.7.3 1.26.48 1.7.62.7.22 1.35.2 1.86.12.57-.08 1.7-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.13-.27-.2-.57-.35z" fill="#FFFFFF"/>
+          </svg>
+          <span style="font-family:Inter,sans-serif;font-weight:600;font-size:14.5px;color:#0B0F0E;letter-spacing:-.01em;">WhatsApp <span style="font-weight:400;color:#475569;">Business</span></span>
+        </div>
+      </div>
+      <p class="mt-6 text-xs text-ink-500" data-i18n="growth.platformsFooter">Meta Business Partner ecosystem · WhatsApp Business API</p>
+    </div>
   </div>
 </section>
 
@@ -731,7 +831,22 @@
 /* ============ I18N ============ */
 const I18N = {
   en: {
-    'nav.services':'What We Do', 'nav.how':'How It Works', 'nav.why':'Why Koh Phangan', 'nav.team':'Team', 'nav.contact':'Contact',
+    'nav.services':'What We Do', 'nav.growth':'Growth', 'nav.how':'How It Works', 'nav.why':'Why Koh Phangan', 'nav.team':'Team', 'nav.contact':'Contact',
+    'growth.chip':'Growth & Acquisition',
+    'growth.title':'A complete acquisition engine — not just a chatbot.',
+    'growth.lede':'We pair AI-driven operations with active demand generation. Our team runs paid acquisition campaigns across Meta platforms, feeding qualified leads directly into the bot.',
+    'growth.c1.stat':'3',
+    'growth.c1.unit':'Active acquisition campaigns',
+    'growth.c1.desc':'Currently running across Meta platforms — Facebook and Instagram — targeting investors, travelers, and property managers.',
+    'growth.c2.stat':'2,000+',
+    'growth.c2.unit':'Conversations processed by our AI bot',
+    'growth.c2.desc':'Our AI assistant Maya has processed over 2,000 inbound conversations during pilot operations on Koh Phangan — answering inquiries, sharing property details, and routing qualified leads.',
+    'growth.c2.tag':'Pilot phase · Koh Phangan 2024–2026',
+    'growth.c3.stat':'1',
+    'growth.c3.unit':'WhatsApp channel — every lead, every conversation',
+    'growth.c3.desc':'All campaign traffic — Facebook, Instagram, organic, referrals — converges into one WhatsApp inbox managed by AI 24/7.',
+    'growth.platformsLabel':'Powered by',
+    'growth.platformsFooter':'Meta Business Partner ecosystem · WhatsApp Business API',
     'hero.chip':'AI-Powered · WhatsApp-Native',
     'hero.title':'AI-Powered Real Estate Operations',
     'hero.sub':'WhatsApp-native automation for property owners, investors, and rental businesses in Koh Phangan.',
@@ -814,7 +929,22 @@ const I18N = {
     'footer.rights':'© <span id="year"></span> Kaite Bloom Co., Ltd. All rights reserved.'
   },
   th: {
-    'nav.services':'บริการของเรา', 'nav.how':'ระบบทำงานอย่างไร', 'nav.why':'ทำไมต้องเกาะพะงัน', 'nav.team':'ทีมงาน', 'nav.contact':'ติดต่อเรา',
+    'nav.services':'บริการของเรา', 'nav.growth':'การเติบโต', 'nav.how':'ระบบทำงานอย่างไร', 'nav.why':'ทำไมต้องเกาะพะงัน', 'nav.team':'ทีมงาน', 'nav.contact':'ติดต่อเรา',
+    'growth.chip':'การเติบโตและการดึงดูดลูกค้า',
+    'growth.title':'ระบบดึงดูดลูกค้าครบวงจร — ไม่ใช่แค่แชทบอท',
+    'growth.lede':'เรารวมระบบ AI เข้ากับการสร้างความต้องการเชิงรุก ทีมของเราดูแลแคมเปญโฆษณาบนแพลตฟอร์ม Meta โดยส่งลูกค้าที่มีคุณภาพเข้าสู่บอทโดยตรง',
+    'growth.c1.stat':'3',
+    'growth.c1.unit':'แคมเปญที่กำลังทำงานอยู่',
+    'growth.c1.desc':'ทำงานอยู่บนแพลตฟอร์ม Meta ทั้ง Facebook และ Instagram โดยเจาะกลุ่มนักลงทุน นักท่องเที่ยว และผู้จัดการที่พัก',
+    'growth.c2.stat':'2,000+',
+    'growth.c2.unit':'การสนทนาที่ AI ของเราประมวลผลแล้ว',
+    'growth.c2.desc':'Maya ผู้ช่วย AI ของเราได้ประมวลผลการสนทนามากกว่า 2,000 รายการในช่วงการดำเนินงานนำร่องบนเกาะพะงัน — ตอบคำถาม แชร์รายละเอียดที่พัก และคัดกรองลูกค้าที่มีคุณภาพ',
+    'growth.c2.tag':'ระยะนำร่อง · เกาะพะงัน 2024–2026',
+    'growth.c3.stat':'1',
+    'growth.c3.unit':'ช่องทาง WhatsApp เดียว — ครบทุกลูกค้า ทุกการสนทนา',
+    'growth.c3.desc':'ทราฟฟิกจากทุกแคมเปญ — Facebook, Instagram, ออร์แกนิก, การแนะนำ — รวมเข้าสู่ WhatsApp เดียวที่ AI ดูแลตลอด 24 ชั่วโมง',
+    'growth.platformsLabel':'ทำงานร่วมกับ',
+    'growth.platformsFooter':'ระบบนิเวศพันธมิตรธุรกิจ Meta · WhatsApp Business API',
     'hero.chip':'ขับเคลื่อนด้วย AI · ทำงานผ่าน WhatsApp',
     'hero.title':'ระบบจัดการอสังหาริมทรัพย์ขับเคลื่อนด้วย AI',
     'hero.sub':'ระบบอัตโนมัติบน WhatsApp สำหรับเจ้าของที่พัก นักลงทุน และธุรกิจให้เช่าบนเกาะพะงัน',
