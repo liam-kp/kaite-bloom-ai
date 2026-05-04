@@ -554,29 +554,55 @@
       <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink-900" data-i18n="why.title">A market built for this.</h2>
     </div>
 
-    <div class="mt-10 grid gap-5 sm:grid-cols-3">
-      <div class="card reveal p-6 rounded-2xl border border-paper-200 bg-paper-50">
-        <div class="grid place-items-center w-10 h-10 rounded-lg bg-white text-accent-700 border border-paper-200">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <p class="mt-5 text-ink-900 font-medium leading-snug" data-i18n="why.b1">Fast-growing tourist destination with international clients.</p>
-      </div>
-      <div class="card reveal p-6 rounded-2xl border border-paper-200 bg-paper-50">
-        <div class="grid place-items-center w-10 h-10 rounded-lg bg-white text-accent-700 border border-paper-200">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-        </div>
-        <p class="mt-5 text-ink-900 font-medium leading-snug" data-i18n="why.b2">Active rental market across short-term and long-term segments.</p>
-      </div>
-      <div class="card reveal p-6 rounded-2xl border border-paper-200 bg-paper-50">
-        <div class="grid place-items-center w-10 h-10 rounded-lg bg-white text-accent-700 border border-paper-200">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.18.42.27.87.27 1.32V11a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </div>
-        <p class="mt-5 text-ink-900 font-medium leading-snug" data-i18n="why.b3">Most communication is still handled manually — a massive efficiency gap to fill.</p>
-      </div>
+    <!-- ROW 1: Atmosphere banner -->
+    <figure class="reveal relative mt-10 mb-12 overflow-hidden rounded-2xl ring-1 ring-paper-200 shadow-card">
+      <img src="assets/img/koh-phangan-vibe.jpg"
+           alt="Koh Phangan island life — Full Moon party atmosphere"
+           loading="lazy"
+           width="1200" height="1600"
+           class="w-full block object-cover"
+           style="aspect-ratio:21/9; object-position:center 30%; max-height:380px;" />
+      <div class="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none"
+           style="background: linear-gradient(180deg, transparent 0%, rgba(8,12,16,0) 30%, rgba(8,12,16,.55) 75%, rgba(8,12,16,.78) 100%);"></div>
+      <figcaption class="absolute left-5 sm:left-7 bottom-5 sm:bottom-6 text-white text-sm sm:text-base font-medium max-w-[88%] leading-snug drop-shadow"
+                  data-i18n="whyV2.bannerCap">
+        Koh Phangan — where tourism, lifestyle, and opportunity converge.
+      </figcaption>
+    </figure>
+
+    <!-- ROW 2: Three KPI cards -->
+    <div class="grid gap-5 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:0ms">
+        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c1.stat">Manual</div>
+        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c1.unit">Most operations run on WhatsApp — without automation</p>
+        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c1.title">Operational gap = our wedge</h3>
+        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c1.desc">Property owners, managers, and tour operators on Koh Phangan still handle inquiries manually. We replace that bottleneck with always-on AI.</p>
+        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c1.src">Field research, Koh Phangan 2024–2026</p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:90ms">
+        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c2.stat">THB 13,692</div>
+        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c2.unit">Average villa ADR (Samui region, 2024)</p>
+        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c2.title">Premium yields, low competition density</h3>
+        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c2.desc">Regional villa ADR holds at THB 13,692 per night with 56.6% annual occupancy. Koh Phangan trails Samui in supply density — the opportunity window is open now.</p>
+        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c2.src">C9 Hotelworks, Samui Property Market Update June 2025</p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card reveal stagger p-6 rounded-2xl border border-paper-200 bg-white shadow-card flex flex-col" style="--d:180ms">
+        <div class="text-4xl sm:text-[2.4rem] font-bold tracking-tight grad-text leading-none" data-i18n="whyV2.c3.stat">2026</div>
+        <p class="mt-2 text-sm text-ink-500 leading-snug" data-i18n="whyV2.c3.unit">Thailand's 'Healing Journey' tourism campaign launched</p>
+        <h3 class="mt-5 text-base font-semibold text-ink-900" data-i18n="whyV2.c3.title">Wellness tourism is the national bet</h3>
+        <p class="mt-2 text-sm text-ink-500 leading-relaxed" data-i18n="whyV2.c3.desc">Tourism Authority of Thailand actively targets wellness-led, high-value international visitors — Koh Phangan's exact demographic.</p>
+        <p class="mt-auto pt-5 text-[10px] italic text-ink-300 leading-snug" data-i18n="whyV2.c3.src">Tourism Authority of Thailand, March 2026</p>
+      </article>
     </div>
 
-    <p class="reveal mt-10 text-base sm:text-lg text-ink-700 max-w-3xl" data-i18n="why.outro">
-      We operate locally in Koh Phangan, working directly with property owners, investors, and rental businesses.
+    <!-- ROW 3: Closing line -->
+    <p class="reveal mt-10 text-center text-base sm:text-lg text-ink-500 italic max-w-2xl mx-auto leading-relaxed" data-i18n="whyV2.closing">
+      We operate locally — working directly with property owners, investors, and rental businesses across Koh Phangan.
     </p>
   </div>
 </section>
@@ -593,7 +619,7 @@
       <article class="card team-card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white overflow-hidden">
         <div class="flex items-center gap-5">
           <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-paper-200 flex-shrink-0">
-            <img src="assets/img/liran.jpg" alt="Portrait of Liran (Liam) Miller" width="96" height="96" class="photo w-full h-full object-cover" />
+            <img src="assets/img/liran-new.jpg" alt="Portrait of Liran (Liam) Miller with co-founder Sirin Nekhamatcha" width="96" height="96" class="photo w-full h-full object-cover" />
           </div>
           <div>
             <h3 class="text-lg font-semibold text-ink-900">Liran (Liam) Miller</h3>
@@ -753,10 +779,23 @@ const I18N = {
     'how.demo.open':'Open in new tab',
     'why.chip':'Why Koh Phangan',
     'why.title':'A market built for this.',
-    'why.b1':'Fast-growing tourist destination with international clients.',
-    'why.b2':'Active rental market across short-term and long-term segments.',
-    'why.b3':'Most communication is still handled manually — a massive efficiency gap to fill.',
-    'why.outro':'We operate locally in Koh Phangan, working directly with property owners, investors, and rental businesses.',
+    'whyV2.bannerCap':'Koh Phangan — where tourism, lifestyle, and opportunity converge.',
+    'whyV2.c1.stat':'Manual',
+    'whyV2.c1.unit':'Most operations run on WhatsApp — without automation',
+    'whyV2.c1.title':'Operational gap = our wedge',
+    'whyV2.c1.desc':'Property owners, managers, and tour operators on Koh Phangan still handle inquiries manually. We replace that bottleneck with always-on AI.',
+    'whyV2.c1.src':'Field research, Koh Phangan 2024–2026',
+    'whyV2.c2.stat':'THB 13,692',
+    'whyV2.c2.unit':'Average villa ADR (Samui region, 2024)',
+    'whyV2.c2.title':'Premium yields, low competition density',
+    'whyV2.c2.desc':'Regional villa ADR holds at THB 13,692 per night with 56.6% annual occupancy. Koh Phangan trails Samui in supply density — the opportunity window is open now.',
+    'whyV2.c2.src':'C9 Hotelworks, Samui Property Market Update June 2025',
+    'whyV2.c3.stat':'2026',
+    'whyV2.c3.unit':"Thailand's 'Healing Journey' tourism campaign launched",
+    'whyV2.c3.title':'Wellness tourism is the national bet',
+    'whyV2.c3.desc':"Tourism Authority of Thailand actively targets wellness-led, high-value international visitors — Koh Phangan's exact demographic.",
+    'whyV2.c3.src':'Tourism Authority of Thailand, March 2026',
+    'whyV2.closing':'We operate locally — working directly with property owners, investors, and rental businesses across Koh Phangan.',
     'team.chip':'Team',
     'team.title':'Founders',
     'team.liran.role':'Co-Founder · AI & Systems',
@@ -823,10 +862,23 @@ const I18N = {
     'how.demo.open':'เปิดในแท็บใหม่',
     'why.chip':'ทำไมต้องเกาะพะงัน',
     'why.title':'ตลาดที่เหมาะกับระบบนี้',
-    'why.b1':'จุดหมายปลายทางท่องเที่ยวที่เติบโตเร็ว มีลูกค้าต่างชาติจำนวนมาก',
-    'why.b2':'ตลาดให้เช่าคึกคักทั้งระยะสั้นและระยะยาว',
-    'why.b3':'การสื่อสารส่วนใหญ่ยังทำด้วยมือ — เป็นโอกาสในการเพิ่มประสิทธิภาพอย่างมาก',
-    'why.outro':'เราดำเนินงานในพื้นที่เกาะพะงัน ทำงานร่วมกับเจ้าของที่พัก นักลงทุน และธุรกิจให้เช่าโดยตรง',
+    'whyV2.bannerCap':'เกาะพะงัน — จุดบรรจบของการท่องเที่ยว ไลฟ์สไตล์ และโอกาส',
+    'whyV2.c1.stat':'ด้วยมือ',
+    'whyV2.c1.unit':'การดำเนินงานส่วนใหญ่ยังทำผ่าน WhatsApp โดยไม่มีระบบอัตโนมัติ',
+    'whyV2.c1.title':'ช่องว่างของระบบ = โอกาสของเรา',
+    'whyV2.c1.desc':'เจ้าของที่พัก ผู้จัดการ และผู้ประกอบการท่องเที่ยวบนเกาะพะงันยังจัดการคำถามด้วยตนเอง เราเข้ามาแทนที่ด้วย AI ที่ทำงานตลอดเวลา',
+    'whyV2.c1.src':'ผลสำรวจภาคสนาม เกาะพะงัน ปี 2024–2026',
+    'whyV2.c2.stat':'13,692 บาท',
+    'whyV2.c2.unit':'ค่าเช่าวิลล่าเฉลี่ยต่อคืน (ภูมิภาคสมุย ปี 2024)',
+    'whyV2.c2.title':'ผลตอบแทนสูง การแข่งขันต่ำ',
+    'whyV2.c2.desc':'ค่าเช่าวิลล่าเฉลี่ยในภูมิภาคอยู่ที่ 13,692 บาทต่อคืน อัตราการเข้าพักเฉลี่ย 56.6% ต่อปี เกาะพะงันยังมีอุปทานน้อยกว่าสมุย — โอกาสยังเปิดอยู่',
+    'whyV2.c2.src':'C9 Hotelworks, รายงานตลาดอสังหาริมทรัพย์สมุย มิถุนายน 2025',
+    'whyV2.c3.stat':'2026',
+    'whyV2.c3.unit':"แคมเปญท่องเที่ยว 'Healing Journey' ของไทยเริ่มดำเนินการ",
+    'whyV2.c3.title':'การท่องเที่ยวเชิงสุขภาพคือยุทธศาสตร์ระดับชาติ',
+    'whyV2.c3.desc':'การท่องเที่ยวแห่งประเทศไทยมุ่งเป้านักท่องเที่ยวต่างชาติเชิงสุขภาพและกำลังซื้อสูง — กลุ่มเป้าหมายตรงของเกาะพะงัน',
+    'whyV2.c3.src':'การท่องเที่ยวแห่งประเทศไทย มีนาคม 2026',
+    'whyV2.closing':'เราดำเนินงานในพื้นที่ — ทำงานโดยตรงกับเจ้าของที่พัก นักลงทุน และธุรกิจให้เช่าทั่วเกาะพะงัน',
     'team.chip':'ทีมงาน',
     'team.title':'ผู้ก่อตั้ง',
     'team.liran.role':'ผู้ร่วมก่อตั้ง · ระบบ AI',
