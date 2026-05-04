@@ -4,6 +4,12 @@ HTML _ SCREENSHOT 1 - TH.png
 HTML - SCREENSHOT 2 - TH.png
 Today On The Island.png
 Prompt Section - Short Rental.png
+Chaluklam Casa - Mobile.png
+
+# Stray drops into assets/img/ — originals/zips/personal photos that must not be published
+assets/img/*.zip
+assets/img/Chen + Liran.JPG
+assets/img/לChaluklam Casa - Mobile.png
 Sirin.png
 Liran Miller.jpeg
 lite_th.html
