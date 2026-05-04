@@ -64,46 +64,161 @@
   body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; color:#0B0F0E; background:#FFFFFF; }
   html[lang="th"] body, html[lang="th"] h1, html[lang="th"] h2, html[lang="th"] h3, html[lang="th"] p, html[lang="th"] a, html[lang="th"] span, html[lang="th"] li, html[lang="th"] button { font-family: 'Noto Sans Thai', 'Inter', sans-serif; }
 
-  /* Hero background — subtle dot-grid + radial wash (Linear-style, no purple) */
+  /* ===== Scroll progress bar ===== */
+  #scrollbar { position: fixed; top:0; left:0; right:0; height:2px; z-index:60; background:transparent; pointer-events:none; }
+  #scrollbar > span { display:block; height:100%; width:100%; background:linear-gradient(90deg,#0F766E,#14B8A6); transform:scaleX(0); transform-origin:0 0; will-change:transform; }
+
+  /* ===== Hero background — subtle dot-grid + radial wash ===== */
   .hero-grid {
     background-image:
-      radial-gradient(circle at 50% 30%, rgba(15,118,110,0.10), transparent 55%),
-      radial-gradient(circle at 80% 80%, rgba(20,184,166,0.07), transparent 50%),
+      radial-gradient(circle at 18% 22%, rgba(15,118,110,0.10), transparent 55%),
+      radial-gradient(circle at 88% 78%, rgba(20,184,166,0.08), transparent 50%),
       radial-gradient(rgba(15,23,42,0.07) 1px, transparent 1px);
     background-size: auto, auto, 22px 22px;
-    background-position: 0 0, 0 0, 0 0;
   }
   .grad-text {
     background: linear-gradient(180deg, #0B0F0E 0%, #115E59 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .nav-blur { backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); background: rgba(255,255,255,0.78); }
+
+  /* ===== Hero word reveal ===== */
+  .word { display:inline-block; opacity:0; filter: blur(6px); transform: translateY(10px); transition: opacity .55s ease, transform .55s ease, filter .55s ease; }
+  .word.in { opacity:1; filter: blur(0); transform: translateY(0); }
+  .fade-up { opacity:0; transform: translateY(10px); transition: opacity .55s ease .15s, transform .55s ease .15s; }
+  .fade-up.in { opacity:1; transform: translateY(0); }
+
+  /* ===== Nav ===== */
+  .nav-blur { backdrop-filter: saturate(180%) blur(8px); -webkit-backdrop-filter: saturate(180%) blur(8px); background: rgba(255,255,255,0.55); border-bottom-color: transparent !important; transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease; }
+  .nav-blur.scrolled { background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom-color: rgba(229,231,235,0.9) !important; box-shadow: 0 4px 20px -10px rgba(15,23,42,.08); }
+
   .ring-focus:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(15,118,110,0.35); }
+
+  /* ===== Cards ===== */
   .card { transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease; }
-  .card:hover { border-color: #0F766E33; box-shadow: 0 1px 2px rgba(15,23,42,.05), 0 16px 38px rgba(15,118,110,.12); }
-  .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+  .card:hover { transform: translateY(-4px); border-color: #0F766E40; box-shadow: 0 1px 2px rgba(15,23,42,.05), 0 18px 42px rgba(15,118,110,.14); }
+  .card .icon-wrap { transition: transform .35s cubic-bezier(.4,.0,.2,1); }
+  .card:hover .icon-wrap { transform: scale(1.08) rotate(-3deg); }
+  .team-card .photo { transition: transform .5s ease; }
+  .team-card:hover .photo { transform: scale(1.05); }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-  /* Marker chip */
+
+  /* Stagger via inline --d */
+  .stagger { transition-delay: var(--d, 0ms); }
+
+  /* ===== Marker chip ===== */
   .chip { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .65rem; font-size:.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; border-radius:9999px; background:#F0FDFA; color:#0F766E; border:1px solid #CCFBF1; }
-  /* Flow diagram nodes */
-  .flow-node { display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem; background:white; border:1px solid #E5E7EB; border-radius:14px; box-shadow:0 1px 2px rgba(15,23,42,.04); white-space:nowrap; }
-  .flow-arrow { color:#94A3B8; flex-shrink:0; }
-  /* Carousel */
+  .chip .pulse { width:6px; height:6px; border-radius:9999px; background:#10B981; box-shadow: 0 0 0 0 rgba(16,185,129,.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.5)} 70%{box-shadow:0 0 0 8px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+
+  /* ===== Flow diagram nodes ===== */
+  .flow-node { display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem; background:white; border:1px solid #E5E7EB; border-radius:14px; box-shadow:0 1px 2px rgba(15,23,42,.04); white-space:nowrap; opacity:0; transform: translateY(8px); transition: opacity .5s ease var(--d,0ms), transform .5s ease var(--d,0ms); }
+  .flow-node.in { opacity:1; transform:translateY(0); }
+  .flow-arrow { color:#94A3B8; flex-shrink:0; opacity:0; transition: opacity .5s ease var(--d,0ms); }
+  .flow-arrow.in { opacity:1; }
+
+  /* ===== Carousel ===== */
   .carousel { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
   .carousel::-webkit-scrollbar { height: 8px; }
   .carousel::-webkit-scrollbar-thumb { background:#E5E7EB; border-radius: 4px; }
   .snap { scroll-snap-align: start; }
-  /* Reduced motion */
+
+  /* ===== Magnetic CTA ===== */
+  .btn-mag { position:relative; transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background-color .2s ease, color .2s ease; will-change: transform; }
+  .btn-mag.primary:hover { transform: scale(1.02); box-shadow: 0 8px 24px -6px rgba(15,118,110,.45), 0 2px 6px rgba(15,118,110,.20); }
+  .btn-mag.secondary:hover { transform: scale(1.02); box-shadow: 0 8px 24px -8px rgba(15,118,110,.18); }
+
+  /* ===== Contact dot grid bg ===== */
+  .dot-bg {
+    background-image: radial-gradient(rgba(15,118,110,0.12) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+
+  /* ============================================================
+     WHATSAPP BOT DEMO
+     ============================================================ */
+  .wa-frame { background: #ECE5DD; border-radius: 22px; overflow: hidden; box-shadow: 0 4px 12px rgba(15,23,42,.08), 0 30px 60px -20px rgba(15,118,110,.20); border: 1px solid rgba(15,23,42,.06); }
+  .wa-frame::before {
+    /* WhatsApp pattern */
+    content:""; display:block; position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background-image:
+      radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+    background-size: 18px 18px, 22px 22px;
+    background-position: 0 0, 9px 11px;
+    mix-blend-mode: overlay;
+  }
+  .wa-stage { position: relative; }
+  .wa-header { background: #075E54; color:#fff; padding: 12px 14px; display:flex; align-items:center; gap:11px; position:relative; z-index:2; }
+  .wa-avatar { width:38px; height:38px; border-radius:9999px; background: linear-gradient(135deg,#25D366,#128C7E); color:#fff; font-weight:700; display:grid; place-items:center; font-size:14px; flex-shrink:0; box-shadow: inset 0 0 0 2px rgba(255,255,255,.2); }
+  .wa-name { font-size:14px; font-weight:600; line-height:1.2; }
+  .wa-status { font-size:11px; opacity:.85; display:flex; align-items:center; gap:6px; margin-top:2px; }
+  .wa-status .green-dot { width:7px; height:7px; border-radius:9999px; background:#25D366; box-shadow: 0 0 0 0 rgba(37,211,102,.7); animation: pulse-green 2.2s infinite; }
+  @keyframes pulse-green { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)} 70%{box-shadow:0 0 0 8px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+  .wa-icons { margin-left:auto; display:flex; align-items:center; gap:14px; opacity:.85; }
+
+  .wa-body { position:relative; z-index:2; padding:16px 12px; height: 460px; overflow:hidden; display:flex; flex-direction:column; gap:8px; justify-content:flex-end; }
+  @media (max-width: 640px) { .wa-body { height: 420px; } }
+
+  .wa-bubble { max-width: 86%; padding: 7px 10px 8px; font-size: 14px; line-height: 1.38; border-radius: 12px; position: relative; word-wrap: break-word; box-shadow: 0 1px 0.5px rgba(0,0,0,.13); animation: bubbleIn .26s cubic-bezier(.2,.8,.2,1) both; }
+  .wa-bubble .meta { display:flex; align-items:center; justify-content:flex-end; gap:4px; font-size:10px; color:#667781; margin-top:2px; margin-left:8px; line-height:1; }
+  .wa-bubble.user { align-self: flex-end; background:#DCF8C6; border-bottom-right-radius: 4px; color:#111; }
+  .wa-bubble.bot  { align-self: flex-start; background:#FFFFFF; border-bottom-left-radius: 4px; color:#111; }
+  .wa-bubble .check { color:#34B7F1; font-size:11px; line-height:1; }
+  @keyframes bubbleIn {
+    0%   { opacity:0; transform: translateY(6px) scale(.96); }
+    100% { opacity:1; transform: translateY(0) scale(1); }
+  }
+  @keyframes bubbleOut { to { opacity:0; transform: translateY(-4px) scale(.98); } }
+  .wa-clearing .wa-bubble { animation: bubbleOut .35s ease forwards; }
+
+  .wa-typing { display:inline-flex; gap:4px; padding:10px 12px; background:#FFFFFF; border-radius:12px; border-bottom-left-radius:4px; align-self:flex-start; box-shadow: 0 1px 0.5px rgba(0,0,0,.13); animation: bubbleIn .22s ease both; }
+  .wa-typing.user { background:#DCF8C6; align-self:flex-end; border-bottom-right-radius:4px; border-bottom-left-radius:12px; }
+  .wa-typing span { width:6px; height:6px; border-radius:9999px; background:#9aa0a6; display:inline-block; animation: typingDot 1.2s infinite ease-in-out; }
+  .wa-typing span:nth-child(2) { animation-delay: .15s; }
+  .wa-typing span:nth-child(3) { animation-delay: .30s; }
+  @keyframes typingDot { 0%,60%,100% { transform: translateY(0); opacity:.45 } 30% { transform: translateY(-3px); opacity:1 } }
+
+  /* Property/map preview card inside a bot bubble */
+  .wa-card { width: 230px; max-width: 100%; background:#fff; border:1px solid #E5E7EB; border-radius:10px; overflow:hidden; margin-top:6px; }
+  .wa-map { position:relative; width:100%; height:110px; background:
+      linear-gradient(135deg,#dbeed6 0%,#cfe7d8 40%,#b9dcd0 100%);
+    overflow:hidden;
+  }
+  .wa-map svg { position:absolute; inset:0; width:100%; height:100%; }
+  .wa-map .pin { position:absolute; left:50%; top:48%; transform: translate(-50%,-100%); }
+  .wa-map .pin svg { width:30px; height:36px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
+  .wa-map .ring { position:absolute; left:50%; top:48%; width:28px; height:28px; border-radius:9999px; border:2px solid rgba(15,118,110,.45); transform: translate(-50%,-50%); animation: pinPulse 2.2s infinite; }
+  @keyframes pinPulse { 0%{transform:translate(-50%,-50%) scale(.4); opacity:.9} 100%{transform:translate(-50%,-50%) scale(2.6); opacity:0} }
+  .wa-card .label { padding: 8px 10px; }
+  .wa-card .label .ttl { font-size:13px; font-weight:600; color:#111; }
+  .wa-card .label .sub { font-size:11px; color:#667781; margin-top:1px; }
+
+  /* Loading dots inside a bot bubble */
+  .wa-load { display:inline-flex; gap:5px; align-items:center; margin-left:6px; }
+  .wa-load span { width:5px; height:5px; border-radius:9999px; background:#0F766E; animation: typingDot 1s infinite ease-in-out; }
+  .wa-load span:nth-child(2) { animation-delay:.15s }
+  .wa-load span:nth-child(3) { animation-delay:.30s }
+
+  /* ===== Reduced motion ===== */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .card { transition: none; }
+    .reveal, .word, .fade-up, .flow-node, .flow-arrow { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+    .card, .btn-mag, .wa-bubble, .wa-typing, .green-dot, .pulse, .wa-load span, .wa-typing span, .wa-map .ring { animation: none !important; transition: none !important; }
   }
-  /* Mobile menu */
+  /* Mobile: disable magnetic */
+  @media (max-width: 768px) { .btn-mag.primary:hover, .btn-mag.secondary:hover { transform: none; } }
+
   #mobileMenu[hidden] { display: none; }
 </style>
 </head>
 <body class="font-sans text-ink-900 bg-white">
+
+<!-- Scroll progress -->
+<div id="scrollbar" aria-hidden="true"><span></span></div>
 
 <!-- Skip link -->
 <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-accent-700 focus:text-white focus:px-3 focus:py-2 focus:rounded-md">Skip to content</a>
@@ -151,30 +266,58 @@
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section id="top" class="relative pt-28 sm:pt-36 pb-20 sm:pb-28 hero-grid border-b border-paper-200">
-  <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center">
-    <span class="chip reveal" data-i18n="hero.chip">Koh Phangan · Thailand</span>
-    <h1 class="reveal mt-5 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight grad-text leading-[1.05]" data-i18n="hero.title">
-      AI-Powered Real Estate Operations
-    </h1>
-    <p class="reveal mt-5 text-lg sm:text-xl text-ink-500 max-w-2xl mx-auto leading-relaxed" data-i18n="hero.sub">
-      WhatsApp-native automation for property owners, investors, and rental businesses in Koh Phangan.
-    </p>
-    <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a href="#how" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent-700 hover:bg-accent-800 text-white font-medium text-sm shadow-rise transition-colors ring-focus cursor-pointer">
-        <span data-i18n="hero.cta">See how it works</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-paper-200 bg-white hover:border-accent-700 text-ink-900 font-medium text-sm transition-colors ring-focus cursor-pointer" data-i18n="hero.cta2">Talk to us</a>
+<!-- ============ HERO (split: text + live bot demo) ============ -->
+<section id="top" class="relative pt-24 sm:pt-32 pb-16 sm:pb-24 hero-grid border-b border-paper-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    <!-- LEFT — copy -->
+    <div class="lg:col-span-5">
+      <span class="chip fade-up" data-anim>
+        <span class="pulse" aria-hidden="true"></span>
+        <span data-i18n="hero.chip">AI-Powered · WhatsApp-Native</span>
+      </span>
+      <h1 id="heroTitle" class="mt-5 text-4xl sm:text-5xl md:text-[3.4rem] font-bold tracking-tight grad-text leading-[1.05]" data-i18n="hero.title" data-anim-words>
+        AI-Powered Real Estate Operations
+      </h1>
+      <p class="fade-up mt-5 text-lg sm:text-xl text-ink-500 max-w-xl leading-relaxed" data-i18n="hero.sub" data-anim style="transition-delay:.55s">
+        WhatsApp-native automation for property owners, investors, and rental businesses in Koh Phangan.
+      </p>
+      <div class="fade-up mt-8 flex flex-wrap items-center gap-3" data-anim style="transition-delay:.7s">
+        <a href="#how" class="btn-mag primary inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent-700 hover:bg-accent-800 text-white font-medium text-sm shadow-rise ring-focus cursor-pointer">
+          <span data-i18n="hero.cta">See how it works</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://wa.me/66967907754" target="_blank" rel="noopener" class="btn-mag secondary inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-paper-200 bg-white hover:border-accent-700 text-ink-900 font-medium text-sm ring-focus cursor-pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.79.47 3.47 1.29 4.93L2 22l5.25-1.27A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.07 14.07c-.21.59-1.21 1.13-1.69 1.2-.43.06-.97.09-1.57-.1-.36-.11-.83-.27-1.43-.53-2.51-1.08-4.15-3.6-4.27-3.77-.13-.17-1.03-1.37-1.03-2.61 0-1.24.65-1.85.88-2.1.23-.25.5-.31.67-.31s.34.01.49.02c.16 0 .37-.06.58.44.21.51.72 1.75.78 1.88.06.13.1.28.02.45-.08.17-.12.27-.24.42-.12.15-.25.33-.36.45-.12.12-.24.25-.1.49.13.24.6.99 1.29 1.6.89.79 1.63 1.04 1.87 1.16.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.11.06.62-.15 1.21z"/></svg>
+          <span data-i18n="hero.cta2">Talk to us on WhatsApp</span>
+        </a>
+      </div>
+      <p class="fade-up mt-6 text-xs font-medium text-ink-500" data-anim style="transition-delay:.85s" data-i18n="hero.trust">
+        Active in Koh Phangan since 2024 · Bilingual EN/TH
+      </p>
     </div>
-    <!-- Inline credibility row -->
-    <div class="reveal mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-ink-500">
-      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.79.47 3.47 1.29 4.93L2 22l5.25-1.27A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.07 14.07c-.21.59-1.21 1.13-1.69 1.2-.43.06-.97.09-1.57-.1-.36-.11-.83-.27-1.43-.53-2.51-1.08-4.15-3.6-4.27-3.77-.13-.17-1.03-1.37-1.03-2.61 0-1.24.65-1.85.88-2.1.23-.25.5-.31.67-.31s.34.01.49.02c.16 0 .37-.06.58.44.21.51.72 1.75.78 1.88.06.13.1.28.02.45-.08.17-.12.27-.24.42-.12.15-.25.33-.36.45-.12.12-.24.25-.1.49.13.24.6.99 1.29 1.6.89.79 1.63 1.04 1.87 1.16.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.11.06.62-.15 1.21z"/></svg> WhatsApp-native</span>
-      <span aria-hidden="true">·</span>
-      <span data-i18n="hero.k1">EN · TH · RU</span>
-      <span aria-hidden="true">·</span>
-      <span data-i18n="hero.k2">Local team in Koh Phangan</span>
+
+    <!-- RIGHT — Live WhatsApp demo -->
+    <div class="lg:col-span-7 fade-up" data-anim style="transition-delay:.4s">
+      <div class="relative max-w-md mx-auto lg:mx-0 lg:ml-auto">
+        <!-- Floating background glow -->
+        <div aria-hidden="true" class="absolute -inset-6 rounded-[32px] bg-gradient-to-br from-accent-100/60 via-white/0 to-emerald-100/40 blur-2xl"></div>
+        <div class="wa-frame relative">
+          <div class="wa-stage">
+            <header class="wa-header">
+              <div class="wa-avatar">M</div>
+              <div>
+                <div class="wa-name">Maya · Kaite Bloom AI</div>
+                <div class="wa-status"><span class="green-dot" aria-hidden="true"></span><span data-i18n="wa.status">online</span></div>
+              </div>
+              <div class="wa-icons" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+            </header>
+            <div class="wa-body" id="waBody" aria-live="polite" aria-label="Live chat demo"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -193,7 +336,7 @@
     <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Card 1 -->
       <article class="card reveal p-6 rounded-2xl border border-paper-200 bg-white shadow-card">
-        <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
+        <div class="icon-wrap grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
         </div>
         <h3 class="mt-5 text-lg font-semibold text-ink-900" data-i18n="services.c1.t">Long-Term Rentals</h3>
@@ -202,7 +345,7 @@
       </article>
       <!-- Card 2 -->
       <article class="card reveal p-6 rounded-2xl border border-paper-200 bg-white shadow-card">
-        <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
+        <div class="icon-wrap grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
         </div>
         <h3 class="mt-5 text-lg font-semibold text-ink-900" data-i18n="services.c2.t">Short-Term Rentals</h3>
@@ -211,7 +354,7 @@
       </article>
       <!-- Card 3 -->
       <article class="card reveal p-6 rounded-2xl border border-paper-200 bg-white shadow-card sm:col-span-2 lg:col-span-1">
-        <div class="grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
+        <div class="icon-wrap grid place-items-center w-11 h-11 rounded-xl bg-accent-50 text-accent-700">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 1 0-5.66 5.66l1.06 1.06a1 1 0 0 0 1.41 0l3.18-3.18a1 1 0 0 0 0-1.41l-.0-.13z"/><path d="M3 21l4.5-4.5"/><path d="M14 14l7 7"/></svg>
         </div>
         <h3 class="mt-5 text-lg font-semibold text-ink-900" data-i18n="services.c3.t">Property Management</h3>
@@ -238,7 +381,7 @@
     </div>
 
     <!-- Flow diagram -->
-    <div class="reveal mt-10 p-6 sm:p-8 rounded-2xl bg-white border border-paper-200 shadow-card">
+    <div id="flowDiagram" class="reveal mt-10 p-6 sm:p-8 rounded-2xl bg-white border border-paper-200 shadow-card">
       <div class="flex flex-col lg:flex-row items-stretch gap-4">
         <div class="flow-node">
           <span class="grid place-items-center w-7 h-7 rounded-md bg-accent-50 text-accent-700">
@@ -377,9 +520,11 @@
     </div>
 
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
-      <article class="card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white">
+      <article class="card team-card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white overflow-hidden">
         <div class="flex items-center gap-5">
-          <img src="assets/img/liran.jpg" alt="Portrait of Liran (Liam) Miller" width="96" height="96" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover ring-1 ring-paper-200" />
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-paper-200 flex-shrink-0">
+            <img src="assets/img/liran.jpg" alt="Portrait of Liran (Liam) Miller" width="96" height="96" class="photo w-full h-full object-cover" />
+          </div>
           <div>
             <h3 class="text-lg font-semibold text-ink-900">Liran (Liam) Miller</h3>
             <p class="text-xs font-medium uppercase tracking-wide text-accent-700 mt-1" data-i18n="team.liran.role">Co-Founder · AI &amp; Systems</p>
@@ -388,9 +533,11 @@
         <p class="mt-5 text-sm text-ink-500 leading-relaxed" data-i18n="team.liran.bio">Digital entrepreneur. AI systems and chatbot specialist.</p>
       </article>
 
-      <article class="card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white">
+      <article class="card team-card reveal p-6 sm:p-8 rounded-2xl border border-paper-200 bg-white overflow-hidden">
         <div class="flex items-center gap-5">
-          <img src="assets/img/sirin.jpg" alt="Portrait of Sirin Nekhamatcha" width="96" height="96" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover ring-1 ring-paper-200" />
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-paper-200 flex-shrink-0">
+            <img src="assets/img/sirin.jpg" alt="Portrait of Sirin Nekhamatcha" width="96" height="96" class="photo w-full h-full object-cover" />
+          </div>
           <div>
             <h3 class="text-lg font-semibold text-ink-900">Sirin Nekhamatcha</h3>
             <p class="text-xs font-medium uppercase tracking-wide text-accent-700 mt-1" data-i18n="team.sirin.role">Co-Founder · Local Operations</p>
@@ -407,8 +554,9 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="py-20 sm:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-5 sm:px-6">
+<section id="contact" class="relative py-20 sm:py-28 bg-white overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 dot-bg pointer-events-none"></div>
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-6">
     <div class="max-w-2xl">
       <span class="chip reveal" data-i18n="contact.chip">Contact</span>
       <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink-900" data-i18n="contact.title">Let's talk operations.</h2>
@@ -474,13 +622,21 @@
 const I18N = {
   en: {
     'nav.services':'What We Do', 'nav.how':'How It Works', 'nav.why':'Why Koh Phangan', 'nav.team':'Team', 'nav.contact':'Contact',
-    'hero.chip':'Koh Phangan · Thailand',
+    'hero.chip':'AI-Powered · WhatsApp-Native',
     'hero.title':'AI-Powered Real Estate Operations',
     'hero.sub':'WhatsApp-native automation for property owners, investors, and rental businesses in Koh Phangan.',
     'hero.cta':'See how it works',
-    'hero.cta2':'Talk to us',
-    'hero.k1':'EN · TH · RU',
-    'hero.k2':'Local team in Koh Phangan',
+    'hero.cta2':'Talk to us on WhatsApp',
+    'hero.trust':'Active in Koh Phangan since 2024 · Bilingual EN/TH',
+    'wa.status':'online',
+    'wa.user1':"Hi! I'm coming to Koh Phangan between Dec 1–12. Would love more info 🌴",
+    'wa.bot1a':"Hi! I'm Maya, Liam's AI assistant 👋",
+    'wa.bot1b':'Thanks for reaching out!',
+    'wa.bot2':"Here's the villa location:",
+    'wa.cardTitle':'Koh Phangan Villa',
+    'wa.cardSub':'Sri Thanu · 3 bed · pool',
+    'wa.bot3':'Let me check availability for Dec 1–12…',
+    'wa.bot4':"Available! I'll send you details + pricing in a moment.",
     'services.chip':'What We Do',
     'services.title':'Three workflows. One channel.',
     'services.lede':'We bundle the operational layers of a modern rental business into one AI agent — reachable on WhatsApp, where your guests, owners, and partners already are.',
@@ -534,13 +690,21 @@ const I18N = {
   },
   th: {
     'nav.services':'บริการของเรา', 'nav.how':'ระบบทำงานอย่างไร', 'nav.why':'ทำไมต้องเกาะพะงัน', 'nav.team':'ทีมงาน', 'nav.contact':'ติดต่อเรา',
-    'hero.chip':'เกาะพะงัน · ประเทศไทย',
+    'hero.chip':'ขับเคลื่อนด้วย AI · ทำงานผ่าน WhatsApp',
     'hero.title':'ระบบจัดการอสังหาริมทรัพย์ขับเคลื่อนด้วย AI',
     'hero.sub':'ระบบอัตโนมัติบน WhatsApp สำหรับเจ้าของที่พัก นักลงทุน และธุรกิจให้เช่าบนเกาะพะงัน',
     'hero.cta':'ดูวิธีการทำงาน',
-    'hero.cta2':'ติดต่อพูดคุย',
-    'hero.k1':'อังกฤษ · ไทย · รัสเซีย',
-    'hero.k2':'ทีมงานในพื้นที่เกาะพะงัน',
+    'hero.cta2':'ทักหาเราทาง WhatsApp',
+    'hero.trust':'ดำเนินงานบนเกาะพะงันตั้งแต่ปี 2024 · บริการภาษาไทย / อังกฤษ',
+    'wa.status':'ออนไลน์',
+    'wa.user1':'สวัสดีค่ะ ฉันจะมาเกาะพะงันช่วงวันที่ 1–12 ธันวาคม อยากได้ข้อมูลเพิ่มเติมค่ะ 🌴',
+    'wa.bot1a':'สวัสดีค่ะ ฉันชื่อมายา ผู้ช่วย AI ของคุณเลียม 👋',
+    'wa.bot1b':'ขอบคุณที่ติดต่อเข้ามานะคะ!',
+    'wa.bot2':'นี่คือตำแหน่งวิลล่าค่ะ:',
+    'wa.cardTitle':'วิลล่าเกาะพะงัน',
+    'wa.cardSub':'ศรีธนู · 3 ห้องนอน · มีสระว่ายน้ำ',
+    'wa.bot3':'ขอเวลาเช็ควันที่ 1–12 ธันวาสักครู่นะคะ…',
+    'wa.bot4':'ว่างค่ะ! เดี๋ยวส่งรายละเอียดและราคาให้นะคะ',
     'services.chip':'บริการของเรา',
     'services.title':'สามบริการ หนึ่งช่องทาง',
     'services.lede':'เรารวมกระบวนการทำงานหลักของธุรกิจให้เช่าสมัยใหม่ไว้ใน AI Agent ตัวเดียว ติดต่อได้ผ่าน WhatsApp ซึ่งเป็นช่องทางที่ลูกค้า เจ้าของที่พัก และพันธมิตรของคุณใช้งานอยู่แล้ว',
@@ -594,13 +758,19 @@ const I18N = {
   }
 };
 
+const PRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let CURRENT_LANG = 'en';
+
 function applyLang(lang) {
+  CURRENT_LANG = lang;
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const value = I18N[lang]?.[key];
     if (value !== undefined) el.innerHTML = value;
   });
+  // Re-split hero title into per-word spans for word reveal animation
+  splitHeroTitle();
   // Reset year after innerHTML rewrite
   const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
   // Update language button states
@@ -611,6 +781,8 @@ function applyLang(lang) {
     btn.classList.toggle('text-white', isActive);
     btn.classList.toggle('text-ink-500', !isActive);
   });
+  // Restart chat with new strings
+  restartChat();
   try { localStorage.setItem('kb_lang', lang); } catch(e) {}
 }
 
@@ -624,7 +796,30 @@ try {
   const saved = localStorage.getItem('kb_lang');
   if (saved === 'en' || saved === 'th') initialLang = saved;
 } catch(e) {}
-applyLang(initialLang);
+
+/* ============ Hero word reveal ============ */
+function splitHeroTitle() {
+  const el = document.getElementById('heroTitle');
+  if (!el) return;
+  const text = el.textContent.trim();
+  el.textContent = '';
+  const words = text.split(/\s+/);
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'word';
+    span.style.transitionDelay = (i * 60) + 'ms';
+    span.textContent = w + (i < words.length - 1 ? ' ' : '');
+    el.appendChild(span);
+  });
+  // Trigger reveal next frame (or immediately for reduced motion)
+  requestAnimationFrame(() => {
+    el.querySelectorAll('.word').forEach(s => s.classList.add('in'));
+  });
+}
+
+function revealAnimItems() {
+  document.querySelectorAll('[data-anim]').forEach(el => el.classList.add('in'));
+}
 
 /* ============ Mobile menu ============ */
 const menuBtn = document.getElementById('menuBtn');
@@ -638,15 +833,226 @@ mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () =>
   mobileMenu.setAttribute('hidden',''); menuBtn?.setAttribute('aria-expanded','false');
 }));
 
-/* ============ Reveal on scroll ============ */
+/* ============ Reveal on scroll (with stagger via data-stagger group) ============ */
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Sequential flow nodes
+  const flow = document.getElementById('flowDiagram');
+  if (flow) {
+    const fio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const items = flow.querySelectorAll('.flow-node, .flow-arrow');
+        items.forEach((it, i) => {
+          it.style.setProperty('--d', (i * 90) + 'ms');
+          it.classList.add('in');
+        });
+        fio.unobserve(flow);
+      });
+    }, { threshold: 0.25 });
+    fio.observe(flow);
+  }
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.flow-node, .flow-arrow').forEach(el => el.classList.add('in'));
 }
+
+/* ============ Scroll progress + nav state ============ */
+const scrollbar = document.querySelector('#scrollbar > span');
+const headerEl = document.querySelector('header.nav-blur');
+let _ticking = false;
+function onScroll() {
+  if (_ticking) return;
+  _ticking = true;
+  requestAnimationFrame(() => {
+    const h = document.documentElement;
+    const max = (h.scrollHeight - h.clientHeight) || 1;
+    const p = Math.min(1, Math.max(0, h.scrollTop / max));
+    if (scrollbar) scrollbar.style.transform = 'scaleX(' + p + ')';
+    if (headerEl) headerEl.classList.toggle('scrolled', h.scrollTop > 8);
+    _ticking = false;
+  });
+}
+document.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ============ Magnetic CTA (desktop only, not reduced motion) ============ */
+if (!PRM && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.btn-mag').forEach(btn => {
+    let raf = 0;
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      const max = 8;
+      const tx = Math.max(-max, Math.min(max, dx * 0.18));
+      const ty = Math.max(-max, Math.min(max, dy * 0.22));
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        btn.style.transform = `translate(${tx}px, ${ty}px) scale(1.02)`;
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      cancelAnimationFrame(raf);
+      btn.style.transform = '';
+    });
+  });
+}
+
+/* ====================================================================
+   WHATSAPP BOT DEMO ENGINE
+   ==================================================================== */
+const waBody = document.getElementById('waBody');
+let waTimers = [];
+let waIO = null;
+let waVisible = true;
+let waRunning = false;
+
+function waClearTimers() { waTimers.forEach(clearTimeout); waTimers = []; }
+function waReset() { if (waBody) waBody.innerHTML = ''; }
+
+function waStamp() {
+  const d = new Date();
+  return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+}
+function checkSVG() {
+  return '<svg width="13" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true"><path d="M11.071.653a.5.5 0 0 1 .013.707L4.485 8.347a.5.5 0 0 1-.72.014L.929 5.652a.5.5 0 1 1 .72-.694L4.108 7.32 10.364.666a.5.5 0 0 1 .707-.013z" fill="currentColor"/><path d="M15.071.653a.5.5 0 0 1 .013.707L8.485 8.347a.5.5 0 0 1-.72.014l-.86-.84a.5.5 0 1 1 .697-.717l.5.488L14.364.666a.5.5 0 0 1 .707-.013z" fill="currentColor"/></svg>';
+}
+
+function addBubble(side, html, opts={}) {
+  if (!waBody) return null;
+  const b = document.createElement('div');
+  b.className = 'wa-bubble ' + side;
+  b.innerHTML = html + `<div class="meta"><span>${waStamp()}</span>${side==='user' ? '<span class="check">'+checkSVG()+'</span>' : ''}</div>`;
+  waBody.appendChild(b);
+  // keep scroll pinned to bottom
+  waBody.scrollTop = waBody.scrollHeight;
+  return b;
+}
+
+function addTyping(side) {
+  if (!waBody) return null;
+  const t = document.createElement('div');
+  t.className = 'wa-typing ' + side;
+  t.dataset.typing = '1';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  waBody.appendChild(t);
+  waBody.scrollTop = waBody.scrollHeight;
+  return t;
+}
+function removeTyping() {
+  waBody?.querySelectorAll('[data-typing]').forEach(n => n.remove());
+}
+
+function escapeHTML(s) { return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function mapCardHTML() {
+  const t = I18N[CURRENT_LANG]['wa.cardTitle'];
+  const s = I18N[CURRENT_LANG]['wa.cardSub'];
+  return `
+    <div class="wa-card">
+      <div class="wa-map">
+        <svg viewBox="0 0 230 110" preserveAspectRatio="none">
+          <path d="M0 70 Q40 55 80 60 T160 50 T230 60 L230 110 L0 110 Z" fill="#9ec9b1" opacity=".55"/>
+          <path d="M0 80 Q60 70 110 75 T230 80 L230 110 L0 110 Z" fill="#7bb799" opacity=".7"/>
+          <path d="M14 18 H50 M14 30 H80 M14 42 H62" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M170 14 H210 M170 26 H218 M180 38 H210" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="ring" aria-hidden="true"></span>
+        <span class="pin">
+          <svg viewBox="0 0 24 30" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 18 12 18s12-9 12-18c0-6.6-5.4-12-12-12z" fill="#0F766E"/><circle cx="12" cy="12" r="4.5" fill="white"/></svg>
+        </span>
+      </div>
+      <div class="label">
+        <div class="ttl">${escapeHTML(t)}</div>
+        <div class="sub">${escapeHTML(s)}</div>
+      </div>
+    </div>`;
+}
+
+function renderImmediateAll() {
+  // For reduced motion: render the entire conversation at once, no animation/looping
+  waReset();
+  const T = I18N[CURRENT_LANG];
+  addBubble('user', escapeHTML(T['wa.user1']));
+  addBubble('bot', escapeHTML(T['wa.bot1a']));
+  addBubble('bot', escapeHTML(T['wa.bot1b']));
+  addBubble('bot', escapeHTML(T['wa.bot2']) + mapCardHTML());
+  addBubble('bot', escapeHTML(T['wa.bot3']));
+  const fin = addBubble('bot', '<span style="color:#0F766E;font-weight:600">✓</span> ' + escapeHTML(T['wa.bot4']));
+}
+
+function runChatLoop() {
+  if (!waBody || waRunning) return;
+  waRunning = true;
+  waClearTimers();
+  waReset();
+  const T = () => I18N[CURRENT_LANG];
+
+  const at = (ms, fn) => waTimers.push(setTimeout(fn, ms));
+
+  // Step 1 (0s): user typing
+  at(300, () => addTyping('user'));
+  // Step 2 (1s): user message
+  at(1300, () => { removeTyping(); addBubble('user', escapeHTML(T()['wa.user1'])); });
+  // Step 3 (2.5s): bot typing
+  at(2500, () => addTyping('bot'));
+  // Step 4 (4s): bot greeting (two messages, second 200ms after first)
+  at(4000, () => { removeTyping(); addBubble('bot', escapeHTML(T()['wa.bot1a'])); });
+  at(4250, () => addBubble('bot', escapeHTML(T()['wa.bot1b'])));
+  // Step 5 (5.5s): map preview message
+  at(5300, () => addTyping('bot'));
+  at(5800, () => { removeTyping(); addBubble('bot', escapeHTML(T()['wa.bot2']) + mapCardHTML()); });
+  // Step 6 (7s): checking with loading dots
+  at(7000, () => addBubble('bot', escapeHTML(T()['wa.bot3']) + ' <span class="wa-load" aria-hidden="true"><span></span><span></span><span></span></span>'));
+  // Step 7 (8.5s): availability confirm
+  at(8500, () => addBubble('bot', '<span style="color:#0F766E;font-weight:600">✓</span> ' + escapeHTML(T()['wa.bot4'])));
+  // Step 8-9 (10-12s): hold then fade out + restart
+  at(11500, () => waBody.classList.add('wa-clearing'));
+  at(12000, () => {
+    waBody.classList.remove('wa-clearing');
+    waRunning = false;
+    if (waVisible && !PRM) runChatLoop();
+  });
+}
+
+function restartChat() {
+  if (!waBody) return;
+  waClearTimers();
+  waRunning = false;
+  if (PRM) { renderImmediateAll(); return; }
+  if (waVisible) runChatLoop();
+}
+
+if (waBody) {
+  if ('IntersectionObserver' in window) {
+    waIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        waVisible = e.isIntersecting;
+        if (waVisible) restartChat();
+        else { waClearTimers(); waRunning = false; }
+      });
+    }, { threshold: 0.15 });
+    waIO.observe(waBody.closest('.wa-frame'));
+  } else {
+    waVisible = true;
+  }
+}
+
+// Pause when tab hidden
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { waClearTimers(); waRunning = false; }
+  else if (waVisible) restartChat();
+});
+
+/* ============ Boot ============ */
+applyLang(initialLang);
+// Trigger fade-up reveals after first paint
+requestAnimationFrame(() => requestAnimationFrame(revealAnimItems));
 </script>
 
 <!-- JSON-LD Organization -->
