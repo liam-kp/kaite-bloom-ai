@@ -1,0 +1,17 @@
+# Source files (originals — large, kept locally only)
+Chat Example - Bali.jpeg
+HTML _ SCREENSHOT 1 - TH.png
+HTML - SCREENSHOT 2 - TH.png
+Today On The Island.png
+Prompt Section - Short Rental.png
+Sirin.png
+Liran Miller.jpeg
+lite_th.html
+dashboard_marketing_EN.html
+
+# Tooling artifacts
+.claude/
+design-system/
+.DS_Store
+*.log
+node_modules/

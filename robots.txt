@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liam-kp.github.io/kaite-bloom-ai/sitemap.xml
